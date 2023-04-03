@@ -10,6 +10,7 @@ const initialState = {
   status: null,
 };
 
+// Thunk actions
 export const addToReadingList = createAsyncThunk(
   "book/addToReadingList",
   async (book) => {
@@ -44,9 +45,12 @@ export const fetchData = createAsyncThunk("book/fetchData", async (props) => {
   const response = await fetchBooks(props);
   return response.data;
 });
+
+// Store slice for books
 export const bookSlice = createSlice({
   name: "book",
   initialState,
+  // Handle thunk actions in reducers
   extraReducers: (builder) => {
     builder
       .addCase(fetchData.pending, (state) => {
