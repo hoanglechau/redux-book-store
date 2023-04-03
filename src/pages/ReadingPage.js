@@ -14,6 +14,7 @@ import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getReadingList, removeBook } from "../components/book/bookSlice.js";
+
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 const ReadingPage = () => {
@@ -26,6 +27,7 @@ const ReadingPage = () => {
   const handleClickBook = (bookId) => {
     navigate(`/books/${bookId}`);
   };
+
   const chooseBook = (bookId) => {
     setRemovedBookId(bookId);
   };
@@ -40,7 +42,9 @@ const ReadingPage = () => {
     dispatch(removeBook(removedBookId));
     setRemovedBookId("");
   }, [dispatch, removedBookId]);
+
   console.log(readinglist);
+
   return (
     <Container>
       <Typography variant="h3" sx={{ textAlign: "center" }} m={3}>
