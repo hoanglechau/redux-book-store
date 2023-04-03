@@ -31,6 +31,7 @@ const HomePage = () => {
   const limit = 10;
 
   const navigate = useNavigate();
+
   const handleClickBook = (bookId) => {
     navigate(`/books/${bookId}`);
   };
@@ -40,18 +41,20 @@ const HomePage = () => {
     console.log("qury", query);
   }, [dispatch, pageNum, limit, query]);
 
-  //--------------form
+  // Forms
   const defaultValues = {
     searchQuery: "",
   };
+
   const methods = useForm({
     defaultValues,
   });
+
   const { handleSubmit } = methods;
+
   const onSubmit = (data) => {
     setQuery(data.searchQuery);
   };
-  //----------------
 
   return (
     <Container>
